@@ -37,12 +37,12 @@ $title = ($title ?? "No title") . ($baseTitle ?? " | No base title defined");
 
 <!-- header -->
 <?php if (regionHasContent("header")) : ?>
-<?php renderRegion("header") ?>
+    <?php renderRegion("header") ?>
 <?php endif; ?>
 
 <!-- navbar -->
 <?php if (regionHasContent("navbar")) : ?>
-<?php renderRegion("navbar") ?>
+    <?php renderRegion("navbar") ?>
 <?php endif; ?>
 
 <!-- main -->
