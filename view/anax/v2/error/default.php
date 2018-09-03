@@ -5,7 +5,8 @@ namespace Anax\View;
 /**
  * Template file to render a view.
  */
-
+?><div class="mt-4">
+<?php
 // Show incoming variables and view helper functions
 echo showEnvironment(get_defined_vars(), get_defined_functions());
 
@@ -21,3 +22,4 @@ $message = $di->get("router")->getErrorMessage();
 <p><strong>Detailed message:</strong></p>
 <p><?= $message ?></p>
 <?php endif; ?>
+</div>
