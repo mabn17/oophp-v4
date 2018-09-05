@@ -32,7 +32,21 @@ Jag har kikat lite extra på hur man kan använda sig av Bootstrap vilket underl
 Kmom02
 -------------------------
 
-Kommer senare ..
+###### Hur gick det att överföra spelet “Gissa mitt nummer” in i din me-sida?
+lite text
+
+###### Berätta om hur du löste uppgiften med Tärningsspelet 100, hur du tänkte, planerade och utförde uppgiften samt hur du organiserade din kod?
+lite text
+
+###### Berätta om din syn på modellering likt UML jämfört med verktyg som phpDocumentor. Fördelar, nackdelar, användningsområde? Vad tycker du om konceptet make doc?
+lite text
+
+###### Hur känns det att skriva kod utanför och inuti ramverket, ser du fördelar och nackdelar med de olika sätten?
+lite text
+
+###### Vilken är din TIL för detta kmom?
+lite text
+
 
 
 
