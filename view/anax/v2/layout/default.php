@@ -47,8 +47,8 @@ $title = ($title ?? "No title") . ($baseTitle ?? " | No base title defined");
 
 <!-- main -->
 <?php if (regionHasContent("main")) : ?>
-<div class="col-md-10 justify-content-center d-flex">
-    <main class="container d-flex">
+<div class="col-md-10">
+    <main class="container md-w-75 p-3">
         <?php renderRegion("main") ?>
     </main>
 </div>
@@ -57,7 +57,7 @@ $title = ($title ?? "No title") . ($baseTitle ?? " | No base title defined");
 <!-- footer -->
 <?php if (regionHasContent("footer")) : ?>
 <div class="footer">
-    <div class="d-flex justify-content-around bg-light border border-bottom-0 border-bottom-left-0 border-bottom-right-0 py-4 fixed-bottom">
+    <div class="justify-content-around bg-light border border-left-0 border-right-0 py-3 fixed-bottom d-none d-sm-block">
         <?php renderRegion("footer") ?>
     </div>
 </div>

@@ -29,6 +29,11 @@ return [
         "title" => "Gissa numeret",
     ],
     [
+        "text" => "Dice100",
+        "url" => "dice100",
+        "title" => "First to 100",
+    ],
+    [
         "text" => "Development",
         "url" => "dev",
         "title" => "Anax development and debugging utilities.",

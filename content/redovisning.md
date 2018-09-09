@@ -33,19 +33,25 @@ Kmom02
 -------------------------
 
 ###### Hur gick det att överföra spelet “Gissa mitt nummer” in i din me-sida?
-lite text
+I sin helhet gick det bra, anax har ändrat sin struktur lite sedan **Mos** spelade in sina videor så fick man kolla igenom det lite mer. Jag valde att skapa en ny router fil `001_gissa.php` för att dela upp det lite mer, dock så ville inte `$app->router` använda sig av ->post så jag la in en any route istället. Annars var det inga konstigheter.
 
 ###### Berätta om hur du löste uppgiften med Tärningsspelet 100, hur du tänkte, planerade och utförde uppgiften samt hur du organiserade din kod?
-lite text
+Jag började med att göra UML diagrammet för att få en grundtanke hur jag skulle utföra uppgiften. Sedan delade upp koden i tre klasser, Dice och DiceHand som jag återanvände från ***oophp2*** samt en ny DiceGame, som sköter alla nödvändiga funktioner.
+
+Eftersom man jobbar med mer variabler än i *guess my number* så valde jag att använda mig utav post och session, där jag sparar/skickar hela klassen. Och som vanligt är min GUI inte den vackraste.
 
 ###### Berätta om din syn på modellering likt UML jämfört med verktyg som phpDocumentor. Fördelar, nackdelar, användningsområde? Vad tycker du om konceptet make doc?
-lite text
+UML och phpDocumentor gör två olika saker. *UML* är bra att göra ibörjan av sitt projekt då man gör grundtanken på hur det kommer byggas upp. Nackdelen är dock att man kanske inte alltid kan följa diagrammet, ibland kanske man behöver ändra på någon sak, lägga till extra metoder.
+
+*phpDocumentor* blir då mer som en komplettering av uml diagrammet, man slipper ändra det man redan har gjort och det sköter allt åt en. Detta gör bara documentation om man som redan är skrivet och kan därför vara svårare att användra under utväcklingen. 
 
 ###### Hur känns det att skriva kod utanför och inuti ramverket, ser du fördelar och nackdelar med de olika sätten?
-lite text
+Jag tycker det blir lite krångligare att skriva det direkt in i ramverket, troligen för att jag själv inte riktigt har kontroll på vart klasserna och annat hamnar, i gämfört när man bara skriver ett programm själv utanför ramverket då det inte riktigt finns andra saker som "skräpar" runt om.
+
+Däremot blir det mer struktur med koden innuti i ramverket, alla saker ligger tillsammans med liknande kod och det kommer nog bli lättare ju mer man sitter med anax.
 
 ###### Vilken är din TIL för detta kmom?
-lite text
+Tyckte automatgenereringen av dokumentationen med `make doc` var trevlig och den sparar bra med tid än om man skulle göra det för hand. Lärde mig också mer om hur namespaces fungerar.
 
 
 
