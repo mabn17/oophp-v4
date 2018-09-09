@@ -12,6 +12,7 @@ class DiceGame
      * @var DiceHand $players   Array the players
      * @var int $currentPlayer  The "active" player number
      * @var array $dicePot      Stores the all DiceHand values
+     * @var array $names        Array with playernames
      */
     private $dices;
     private $players;
@@ -73,9 +74,9 @@ class DiceGame
     }
 
     /**
-     * Change the current player
+     * Changes the current player
      *
-     * @return int The array index of the current player.
+     * @return void
      */
     public function changeCurrentPlayer()
     {

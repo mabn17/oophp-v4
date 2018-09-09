@@ -57,7 +57,7 @@ $title = ($title ?? "No title") . ($baseTitle ?? " | No base title defined");
 <!-- footer -->
 <?php if (regionHasContent("footer")) : ?>
 <div class="footer">
-    <div class="justify-content-around bg-light border border-left-0 border-right-0 py-3 fixed-bottom d-none d-sm-block">
+    <div class="bg-light border border-left-0 border-right-0 py-3 fixed-bottom d-none d-sm-block">
         <?php renderRegion("footer") ?>
     </div>
 </div>

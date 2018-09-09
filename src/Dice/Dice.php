@@ -12,6 +12,7 @@ class Dice
      * @var int $lastRoll     The latest dice roll
      */
     private $sides;
+    private $lastRoll;
 
     /**
      * Constructor to create a dice.
