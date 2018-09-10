@@ -39,10 +39,11 @@ class DiceGame
         }
     }
 
-    public function names()
+    /* public function names()
     {
         return $this->names;
-    }
+    } */
+
     /**
      * Get the players array
      *
@@ -58,10 +59,10 @@ class DiceGame
      *
      * @return int the number of dices that is getting played.
      */
-    public function dices()
+    /* public function dices()
     {
         return $this->dices;
-    }
+    } */
 
     /**
      * Get the current player
@@ -136,7 +137,7 @@ class DiceGame
         $txt = "Simulate PC";
 
         if ($this->currentPlayer() == 0) {
-            $txt = (in_array(1, $game->dicePot())) ? "Simulate PC" : "Roll Again";
+            $txt = (in_array(1, $this->dicePot())) ? "Simulate PC" : "Roll Again";
         }
         return $txt;
     }
