@@ -38,7 +38,7 @@ I sin helhet gick det bra, anax har ändrat sin struktur lite sedan **Mos** spel
 ###### Berätta om hur du löste uppgiften med Tärningsspelet 100, hur du tänkte, planerade och utförde uppgiften samt hur du organiserade din kod?
 Jag började med att göra UML diagrammet för att få en grundtanke hur jag skulle utföra uppgiften. Sedan delade upp koden i tre klasser, Dice och DiceHand som jag återanvände från ***oophp2*** samt en ny DiceGame, som sköter alla nödvändiga funktioner.
 
-Eftersom man jobbar med mer variabler än i *guess my number* så valde jag att använda mig utav post och session, där jag sparar/skickar hela klassen. Och som vanligt är min GUI inte den vackraste.
+Eftersom man jobbar med mer variabler än i *guess my number* så valde jag att använda mig utav post och session, där jag sparar/skickar hela klassen. Och som vanligt är min GUI inte den vackraste. Däremot så gillade validatorn inte add jag hade förmånga publika klasser för spelhanteraren, vilket ledde till lite mer kod utanför klassen än räknat, då det känndes onödigt att lägga till en extra klass för två metoder.
 
 ###### Berätta om din syn på modellering likt UML jämfört med verktyg som phpDocumentor. Fördelar, nackdelar, användningsområde? Vad tycker du om konceptet make doc?
 UML och phpDocumentor gör två olika saker. *UML* är bra att göra ibörjan av sitt projekt då man gör grundtanken på hur det kommer byggas upp. Nackdelen är dock att man kanske inte alltid kan följa diagrammet, ibland kanske man behöver ändra på någon sak, lägga till extra metoder.
