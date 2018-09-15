@@ -58,8 +58,25 @@ Tyckte automatgenereringen av dokumentationen med `make doc` var trevlig och den
 
 Kmom03
 -------------------------
+###### Har du tidigare erfarenheter av att skriva kod som testar annan kod?
+Jag har lite erfarenhet efter det vi gjorde i oopython kursen, men utifrån det så har jag inte gjort det innan.
 
-Kommer senare ..
+###### Hur ser du på begreppen enhetstestning och att skriva testbar kod?
+Enhetstesting är något som jag har gillat sedan vi började med det i oopython. Det ger en bra grund och man kan lätt ändra saker som förbettrar koden utan att behöva oroa sig för att man har tagit sönder koden. Det kan viserligen kanske kännas lite onödigt för små programm som "gissa mitt nummer".
+
+###### Förklara kort begreppen white/grey/black box testing samt positiva och negativa tester, med dina egna ord.
+Jag har inte läst så mycket om det men om jag får gissa så kan jag tänka mig att blackbox testing är när man försöker, att peta på svaga punkter och ta sönder sin kod. Whilebox att kolla så att allt man har tänkt fungerar som det är tänkt. Greybox hade jag ingen aning om innan jag googlade på var det va, men det är när man försöker få fram sårbarheter och som kan visa skadlig information om koden.
+
+###### Berätta om hur du löste uppgiften med Tärningsspelet 100, hur du tänkte, planerade och utförde uppgiften samt hur du organiserade din kod?
+Detta gjorde jag redan i förra kmom och skrev lite om det där innan mos bestämmde sig för att flytta på uppgiften :(.
+
+###### Hur väl lyckades du testa tärningsspelet 100?
+Det gick bra, behövde inte skriva så många tester och stötte inte på några större problem, blev däremot en del googlande på hur man skulle testa errorn. Jag kunde kanske lägga lite mer tid på att förbättra den men la extra tiden på att börja med min Induviduella Programmvaru Project då jag fick en java applikation...
+
+###### Vilken är din TIL för detta kmom?
+Lärde mig inget speciellt detta kursmoment, var ganska lungt då jag gjorde det mesta i föregående kursmoment. Tyckte däremot att error-testing i php var lite konstigt uppbyggt.
+
+
 
 
 
