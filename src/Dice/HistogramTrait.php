@@ -34,7 +34,6 @@ trait HistogramTrait
      */
     public function printHistogram(int $min = null, int $max = null)
     {
-        $histogram = "";
         $list = [];
 
         if ($min && $max) {
