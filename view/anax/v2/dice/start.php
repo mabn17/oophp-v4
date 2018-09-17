@@ -50,7 +50,9 @@ if (isset($_POST["save"])) {
 
 ?><div class="mt-4">
     <div class="Score">
+        <div class="row">
         <hr>
+        <div class="col-8">
         <h5>Player 1</h5>
         <p><?= $game->players()[0]->points() ?></p>
         <h5>Computer</h5>
@@ -58,6 +60,11 @@ if (isset($_POST["save"])) {
         <hr>
         <h4><?= $player ?> last turn</h4>
         <p><?= $currRoll ?></p>
+        </div>
+        <div class="col border border-top-0 border-bottom-0 border-right-0">
+        <h4><?= $player ?> previous dice rolls</h4>
+        <pre><?= $game->players()[$game->currentPlayer()]->dices()[0]->printHistogram() ?></pre>
+        </div>
     </div>
     <?php if ($game->isDone()) { ?>
         <p><?= $game->isDone() ?></p>
