@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>Anax API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">Anax API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Anax.html">\Anax</a></li>
+                                                        <li><a href="../namespaces/Mabn.html">\Mabn</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">29</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-854606832"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-854606832" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1495804726"></a>
+                                <a href="../namespaces/Anax.html" style="margin-left: 30px; padding-left: 0">Anax</a>
+            </div>
+            <div id="namespace-1495804726" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1943850525"></a>
+                                <a href="../namespaces/Anax.Controller.html" style="margin-left: 30px; padding-left: 0">Controller</a>
+            </div>
+            <div id="namespace-1943850525" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Anax.Controller.DevelopmentController.html">DevelopmentController</a></li>
+                                                    <li class="class"><a href="../classes/Anax.Controller.ErrorHandlerController.html">ErrorHandlerController</a></li>
+                                                    <li class="class"><a href="../classes/Anax.Controller.FlatFileContentController.html">FlatFileContentController</a></li>
+                                                    <li class="class"><a href="../classes/Anax.Controller.SampleController.html">SampleController</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-714821252"></a>
+                                <a href="../namespaces/Anax.Page.html" style="margin-left: 30px; padding-left: 0">Page</a>
+            </div>
+            <div id="namespace-714821252" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Anax.Page.Page.html">Page</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-67889652"></a>
+                                <a href="../namespaces/Mabn.html" style="margin-left: 30px; padding-left: 0">Mabn</a>
+            </div>
+            <div id="namespace-67889652" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-77603879"></a>
+                                <a href="../namespaces/Mabn.Dice.html" style="margin-left: 30px; padding-left: 0">Dice</a>
+            </div>
+            <div id="namespace-77603879" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                            <li class="trait"><a href="../classes/Mabn.Dice.HistogramTrait.html">HistogramTrait</a></li>
+                                                                            <li class="class"><a href="../classes/Mabn.Dice.Dice.html">Dice</a></li>
+                                                    <li class="class"><a href="../classes/Mabn.Dice.DiceGame.html">DiceGame</a></li>
+                                                    <li class="class"><a href="../classes/Mabn.Dice.DiceHand.html">DiceHand</a></li>
+                                                    <li class="class"><a href="../classes/Mabn.Dice.DiceHistogram.html">DiceHistogram</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1309994344"></a>
+                                <a href="../namespaces/Mabn.Guess.html" style="margin-left: 30px; padding-left: 0">Guess</a>
+            </div>
+            <div id="namespace-1309994344" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Mabn.Guess.Guess.html">Guess</a></li>
+                                                    <li class="class"><a href="../classes/Mabn.Guess.GuessException.html">GuessException</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/Mabn.Dice.html">\Mabn\Dice</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\Mabn\Dice</small>DiceHistogram</h1>
+                    <p><em>A dice which has the ability to show a histogram.</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/Mabn.Dice.HistogramTrait.html#method_getHistogramSerie" class="">getHistogramSerie()</a><br />
+                                                                    <a href="../classes/Mabn.Dice.HistogramTrait.html#method_printHistogram" class="">printHistogram()</a><br />
+                                                                    <a href="../classes/Mabn.Dice.Dice.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/Mabn.Dice.DiceHistogram.html#method_roll" class="">roll()</a><br />
+                                                                    <a href="../classes/Mabn.Dice.Dice.html#method_getLastRoll" class="">getLastRoll()</a><br />
+                                                                    <a href="../classes/Mabn.Dice.Dice.html#method_sides" class="">sides()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/Mabn.Dice.HistogramTrait.html#property_serie" class="">$serie</a><br />
+                                                                    <a href="../classes/Mabn.Dice.Dice.html#property_sides" class="">$sides</a><br />
+                                                                    <a href="../classes/Mabn.Dice.Dice.html#property_lastRoll" class="">$lastRoll</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/Dice.DiceHistogram.html"><div class="path-wrapper">Dice\DiceHistogram.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Default</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                                                                                                                                                
+                                        <div class="namespace-wrapper"><a href="../classes/Mabn.Dice.Dice.html">\Mabn\Dice\Dice</a></div>
+                                                                                                    <div class="namespace-wrapper">\Mabn\Dice\DiceHistogram</div>
+                            </dd>
+
+                        
+                                                                                    <dt>Uses traits</dt>
+                                                        <dd>
+                                <a href="../classes/Mabn.Dice.HistogramTrait.html">                                    <div class="namespace-wrapper">\Mabn\Dice\HistogramTrait</div>
+                                </a>                            </dd>
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_serie" name="property_serie" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$serie</h3>
+                <pre class="signature">$serie : array</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                &mdash; The numbers stored in sequence.                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Mabn.Dice.HistogramTrait.html"><div class="path-wrapper">\Mabn\Dice\HistogramTrait</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_sides" name="property_sides" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$sides</h3>
+                <pre class="signature">$sides : integer</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                integer
+                &mdash; Number of sides that the dice has                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Mabn.Dice.Dice.html"><div class="path-wrapper">\Mabn\Dice\Dice</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_lastRoll" name="property_lastRoll" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$lastRoll</h3>
+                <pre class="signature">$lastRoll : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Mabn.Dice.Dice.html"><div class="path-wrapper">\Mabn\Dice\Dice</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getHistogramSerie" name="method_getHistogramSerie" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getHistogramSerie()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getHistogramSerie() : array</pre>
+                <p><em>Get the serie.</em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Call Stack:
+    0.0204     383168   1. {main}() C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:0
+    0.1118    1841328   2. require('phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc') C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:10
+    0.2625    9866888   3. phpDocumentor\Application->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc:23
+    0.2651    9987872   4. Cilex\Provider\Console\ContainerAwareApplication->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Application.php:183
+    0.2652    9987872   5. Cilex\Provider\Console\ContainerAwareApplication->doRun() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:126
+    0.2653    9987872   6. Cilex\Provider\Console\ContainerAwareApplication->doRunCommand() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:195
+    0.2654    9987872   7. phpDocumentor\Command\Project\RunCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:874
+    0.2658    9989600   8. phpDocumentor\Command\Project\RunCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.2484   14546328   9. phpDocumentor\Transformer\Command\Project\TransformCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Command/Project/RunCommand.php:275
+    1.2491   14547872  10. phpDocumentor\Transformer\Command\Project\TransformCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.3456   15441456  11. phpDocumentor\Console\Output\Output->writeTimedLog() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Command/Project/TransformCommand.php:206
+    1.3457   15441456  12. call_user_func_array:{phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59}() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3457   15441744  13. phpDocumentor\Transformer\Transformer->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3476   15513536  14. phpDocumentor\Transformer\Transformer->transformProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:141
+    2.7832   17472920  15. phpDocumentor\Transformer\Transformer->applyTransformationToProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:275
+    2.7838   17473048  16. phpDocumentor\Plugin\Twig\Writer\Twig->transform() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:312
+    4.7720   18466896  17. Twig_Environment->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Plugin/Twig/Writer/Twig.php:116
+    4.7727   18475360  18. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Environment.php:334
+    4.7727   18491832  19. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->display() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:366
+    4.7727   18492648  20. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18492648  21. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7727   18492920  22. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->display() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:26
+    4.7727   18493416  23. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18493416  24. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7780   18542664  25. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\b\e\bedd69d6567da0a0c8c384165203d29104fc5451177b8e133bab0c78b6ce3d1b.php:312
+    4.7780   18542664  26. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->block_content() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.7926   18562240  27. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:869
+    4.7926   18562240  28. __TwigTemplate_c50c7722e144ac757ff82e03ae89707deef7e134def9af325efe05c61666a9a4->block_method() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.7930   18562736  29. twig_length_filter() C:\cygwin64\tmp\phpdoc-twig-cache\7\4\742af47af4aab3d90dd81bfad76f9b29ac552d9baaa04b3d1433d495759036fc.php:140
+
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Call Stack:
+    0.0204     383168   1. {main}() C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:0
+    0.1118    1841328   2. require('phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc') C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:10
+    0.2625    9866888   3. phpDocumentor\Application->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc:23
+    0.2651    9987872   4. Cilex\Provider\Console\ContainerAwareApplication->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Application.php:183
+    0.2652    9987872   5. Cilex\Provider\Console\ContainerAwareApplication->doRun() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:126
+    0.2653    9987872   6. Cilex\Provider\Console\ContainerAwareApplication->doRunCommand() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:195
+    0.2654    9987872   7. phpDocumentor\Command\Project\RunCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:874
+    0.2658    9989600   8. phpDocumentor\Command\Project\RunCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.2484   14546328   9. phpDocumentor\Transformer\Command\Project\TransformCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Command/Project/RunCommand.php:275
+    1.2491   14547872  10. phpDocumentor\Transformer\Command\Project\TransformCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.3456   15441456  11. phpDocumentor\Console\Output\Output->writeTimedLog() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Command/Project/TransformCommand.php:206
+    1.3457   15441456  12. call_user_func_array:{phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59}() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3457   15441744  13. phpDocumentor\Transformer\Transformer->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3476   15513536  14. phpDocumentor\Transformer\Transformer->transformProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:141
+    2.7832   17472920  15. phpDocumentor\Transformer\Transformer->applyTransformationToProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:275
+    2.7838   17473048  16. phpDocumentor\Plugin\Twig\Writer\Twig->transform() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:312
+    4.7720   18466896  17. Twig_Environment->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Plugin/Twig/Writer/Twig.php:116
+    4.7727   18475360  18. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Environment.php:334
+    4.7727   18491832  19. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->display() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:366
+    4.7727   18492648  20. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18492648  21. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7727   18492920  22. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->display() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:26
+    4.7727   18493416  23. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18493416  24. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7780   18542664  25. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\b\e\bedd69d6567da0a0c8c384165203d29104fc5451177b8e133bab0c78b6ce3d1b.php:312
+    4.7780   18542664  26. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->block_content() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.7926   18562240  27. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:869
+    4.7926   18562240  28. __TwigTemplate_c50c7722e144ac757ff82e03ae89707deef7e134def9af325efe05c61666a9a4->block_method() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.8069   18579120  29. twig_length_filter() C:\cygwin64\tmp\phpdoc-twig-cache\7\4\742af47af4aab3d90dd81bfad76f9b29ac552d9baaa04b3d1433d495759036fc.php:140
+
+
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>with the serie.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Mabn.Dice.HistogramTrait.html"><div class="path-wrapper">\Mabn\Dice\HistogramTrait</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_printHistogram" name="method_printHistogram" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">printHistogram()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">printHistogram(integer  <span class="argument">$min = null</span>, integer  <span class="argument">$max = null</span>) : string</pre>
+                <p><em>Print out the histogram, default is to print out only the numbers
+in the serie, but when $min and $max is set then print also empty
+values in the serie, within the range $min, $max.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$min </td>
+                                <td><p>The lowest possible integer number.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$max </td>
+                                <td><p>The highest possible integer number.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Call Stack:
+    0.0204     383168   1. {main}() C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:0
+    0.1118    1841328   2. require('phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc') C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:10
+    0.2625    9866888   3. phpDocumentor\Application->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc:23
+    0.2651    9987872   4. Cilex\Provider\Console\ContainerAwareApplication->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Application.php:183
+    0.2652    9987872   5. Cilex\Provider\Console\ContainerAwareApplication->doRun() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:126
+    0.2653    9987872   6. Cilex\Provider\Console\ContainerAwareApplication->doRunCommand() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:195
+    0.2654    9987872   7. phpDocumentor\Command\Project\RunCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:874
+    0.2658    9989600   8. phpDocumentor\Command\Project\RunCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.2484   14546328   9. phpDocumentor\Transformer\Command\Project\TransformCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Command/Project/RunCommand.php:275
+    1.2491   14547872  10. phpDocumentor\Transformer\Command\Project\TransformCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.3456   15441456  11. phpDocumentor\Console\Output\Output->writeTimedLog() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Command/Project/TransformCommand.php:206
+    1.3457   15441456  12. call_user_func_array:{phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59}() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3457   15441744  13. phpDocumentor\Transformer\Transformer->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3476   15513536  14. phpDocumentor\Transformer\Transformer->transformProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:141
+    2.7832   17472920  15. phpDocumentor\Transformer\Transformer->applyTransformationToProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:275
+    2.7838   17473048  16. phpDocumentor\Plugin\Twig\Writer\Twig->transform() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:312
+    4.7720   18466896  17. Twig_Environment->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Plugin/Twig/Writer/Twig.php:116
+    4.7727   18475360  18. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Environment.php:334
+    4.7727   18491832  19. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->display() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:366
+    4.7727   18492648  20. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18492648  21. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7727   18492920  22. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->display() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:26
+    4.7727   18493416  23. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18493416  24. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7780   18542664  25. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\b\e\bedd69d6567da0a0c8c384165203d29104fc5451177b8e133bab0c78b6ce3d1b.php:312
+    4.7780   18542664  26. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->block_content() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.8252   18578624  27. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:869
+    4.8252   18578624  28. __TwigTemplate_c50c7722e144ac757ff82e03ae89707deef7e134def9af325efe05c61666a9a4->block_method() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.8269   18579616  29. twig_length_filter() C:\cygwin64\tmp\phpdoc-twig-cache\7\4\742af47af4aab3d90dd81bfad76f9b29ac552d9baaa04b3d1433d495759036fc.php:140
+
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Call Stack:
+    0.0204     383168   1. {main}() C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:0
+    0.1118    1841328   2. require('phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc') C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:10
+    0.2625    9866888   3. phpDocumentor\Application->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc:23
+    0.2651    9987872   4. Cilex\Provider\Console\ContainerAwareApplication->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Application.php:183
+    0.2652    9987872   5. Cilex\Provider\Console\ContainerAwareApplication->doRun() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:126
+    0.2653    9987872   6. Cilex\Provider\Console\ContainerAwareApplication->doRunCommand() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:195
+    0.2654    9987872   7. phpDocumentor\Command\Project\RunCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:874
+    0.2658    9989600   8. phpDocumentor\Command\Project\RunCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.2484   14546328   9. phpDocumentor\Transformer\Command\Project\TransformCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Command/Project/RunCommand.php:275
+    1.2491   14547872  10. phpDocumentor\Transformer\Command\Project\TransformCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.3456   15441456  11. phpDocumentor\Console\Output\Output->writeTimedLog() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Command/Project/TransformCommand.php:206
+    1.3457   15441456  12. call_user_func_array:{phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59}() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3457   15441744  13. phpDocumentor\Transformer\Transformer->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3476   15513536  14. phpDocumentor\Transformer\Transformer->transformProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:141
+    2.7832   17472920  15. phpDocumentor\Transformer\Transformer->applyTransformationToProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:275
+    2.7838   17473048  16. phpDocumentor\Plugin\Twig\Writer\Twig->transform() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:312
+    4.7720   18466896  17. Twig_Environment->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Plugin/Twig/Writer/Twig.php:116
+    4.7727   18475360  18. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Environment.php:334
+    4.7727   18491832  19. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->display() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:366
+    4.7727   18492648  20. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18492648  21. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7727   18492920  22. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->display() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:26
+    4.7727   18493416  23. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18493416  24. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7780   18542664  25. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\b\e\bedd69d6567da0a0c8c384165203d29104fc5451177b8e133bab0c78b6ce3d1b.php:312
+    4.7780   18542664  26. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->block_content() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.8252   18578624  27. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:869
+    4.8252   18578624  28. __TwigTemplate_c50c7722e144ac757ff82e03ae89707deef7e134def9af325efe05c61666a9a4->block_method() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.8447   18596000  29. twig_length_filter() C:\cygwin64\tmp\phpdoc-twig-cache\7\4\742af47af4aab3d90dd81bfad76f9b29ac552d9baaa04b3d1433d495759036fc.php:140
+
+
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>representing the histogram.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Mabn.Dice.HistogramTrait.html"><div class="path-wrapper">\Mabn\Dice\HistogramTrait</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(\Mabn\Dice\6|integer  <span class="argument">$sides = 6</span>) </pre>
+                <p><em>Constructor to create a dice.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Mabn\Dice\6|integer</td>
+                                <td>$sides </td>
+                                <td><p>The max value of the dice.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Call Stack:
+    0.0204     383168   1. {main}() C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:0
+    0.1118    1841328   2. require('phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc') C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:10
+    0.2625    9866888   3. phpDocumentor\Application->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc:23
+    0.2651    9987872   4. Cilex\Provider\Console\ContainerAwareApplication->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Application.php:183
+    0.2652    9987872   5. Cilex\Provider\Console\ContainerAwareApplication->doRun() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:126
+    0.2653    9987872   6. Cilex\Provider\Console\ContainerAwareApplication->doRunCommand() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:195
+    0.2654    9987872   7. phpDocumentor\Command\Project\RunCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:874
+    0.2658    9989600   8. phpDocumentor\Command\Project\RunCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.2484   14546328   9. phpDocumentor\Transformer\Command\Project\TransformCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Command/Project/RunCommand.php:275
+    1.2491   14547872  10. phpDocumentor\Transformer\Command\Project\TransformCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.3456   15441456  11. phpDocumentor\Console\Output\Output->writeTimedLog() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Command/Project/TransformCommand.php:206
+    1.3457   15441456  12. call_user_func_array:{phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59}() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3457   15441744  13. phpDocumentor\Transformer\Transformer->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3476   15513536  14. phpDocumentor\Transformer\Transformer->transformProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:141
+    2.7832   17472920  15. phpDocumentor\Transformer\Transformer->applyTransformationToProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:275
+    2.7838   17473048  16. phpDocumentor\Plugin\Twig\Writer\Twig->transform() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:312
+    4.7720   18466896  17. Twig_Environment->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Plugin/Twig/Writer/Twig.php:116
+    4.7727   18475360  18. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Environment.php:334
+    4.7727   18491832  19. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->display() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:366
+    4.7727   18492648  20. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18492648  21. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7727   18492920  22. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->display() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:26
+    4.7727   18493416  23. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18493416  24. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7780   18542664  25. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\b\e\bedd69d6567da0a0c8c384165203d29104fc5451177b8e133bab0c78b6ce3d1b.php:312
+    4.7780   18542664  26. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->block_content() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.8605   18595008  27. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:869
+    4.8605   18595008  28. __TwigTemplate_c50c7722e144ac757ff82e03ae89707deef7e134def9af325efe05c61666a9a4->block_method() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.8613   18596000  29. twig_length_filter() C:\cygwin64\tmp\phpdoc-twig-cache\7\4\742af47af4aab3d90dd81bfad76f9b29ac552d9baaa04b3d1433d495759036fc.php:140
+
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Call Stack:
+    0.0204     383168   1. {main}() C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:0
+    0.1118    1841328   2. require('phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc') C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:10
+    0.2625    9866888   3. phpDocumentor\Application->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc:23
+    0.2651    9987872   4. Cilex\Provider\Console\ContainerAwareApplication->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Application.php:183
+    0.2652    9987872   5. Cilex\Provider\Console\ContainerAwareApplication->doRun() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:126
+    0.2653    9987872   6. Cilex\Provider\Console\ContainerAwareApplication->doRunCommand() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:195
+    0.2654    9987872   7. phpDocumentor\Command\Project\RunCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:874
+    0.2658    9989600   8. phpDocumentor\Command\Project\RunCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.2484   14546328   9. phpDocumentor\Transformer\Command\Project\TransformCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Command/Project/RunCommand.php:275
+    1.2491   14547872  10. phpDocumentor\Transformer\Command\Project\TransformCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.3456   15441456  11. phpDocumentor\Console\Output\Output->writeTimedLog() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Command/Project/TransformCommand.php:206
+    1.3457   15441456  12. call_user_func_array:{phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59}() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3457   15441744  13. phpDocumentor\Transformer\Transformer->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3476   15513536  14. phpDocumentor\Transformer\Transformer->transformProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:141
+    2.7832   17472920  15. phpDocumentor\Transformer\Transformer->applyTransformationToProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:275
+    2.7838   17473048  16. phpDocumentor\Plugin\Twig\Writer\Twig->transform() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:312
+    4.7720   18466896  17. Twig_Environment->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Plugin/Twig/Writer/Twig.php:116
+    4.7727   18475360  18. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Environment.php:334
+    4.7727   18491832  19. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->display() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:366
+    4.7727   18492648  20. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18492648  21. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7727   18492920  22. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->display() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:26
+    4.7727   18493416  23. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18493416  24. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7780   18542664  25. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\b\e\bedd69d6567da0a0c8c384165203d29104fc5451177b8e133bab0c78b6ce3d1b.php:312
+    4.7780   18542664  26. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->block_content() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.8605   18595008  27. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:869
+    4.8605   18595008  28. __TwigTemplate_c50c7722e144ac757ff82e03ae89707deef7e134def9af325efe05c61666a9a4->block_method() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.8740   18596000  29. twig_length_filter() C:\cygwin64\tmp\phpdoc-twig-cache\7\4\742af47af4aab3d90dd81bfad76f9b29ac552d9baaa04b3d1433d495759036fc.php:140
+
+
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Mabn.Dice.Dice.html"><div class="path-wrapper">\Mabn\Dice\Dice</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_roll" name="method_roll" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">roll()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">roll() : integer</pre>
+                <p><em>Roll the dice, remember its value in the serie and return
+its value.</em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Call Stack:
+    0.0204     383168   1. {main}() C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:0
+    0.1118    1841328   2. require('phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc') C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:10
+    0.2625    9866888   3. phpDocumentor\Application->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc:23
+    0.2651    9987872   4. Cilex\Provider\Console\ContainerAwareApplication->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Application.php:183
+    0.2652    9987872   5. Cilex\Provider\Console\ContainerAwareApplication->doRun() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:126
+    0.2653    9987872   6. Cilex\Provider\Console\ContainerAwareApplication->doRunCommand() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:195
+    0.2654    9987872   7. phpDocumentor\Command\Project\RunCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:874
+    0.2658    9989600   8. phpDocumentor\Command\Project\RunCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.2484   14546328   9. phpDocumentor\Transformer\Command\Project\TransformCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Command/Project/RunCommand.php:275
+    1.2491   14547872  10. phpDocumentor\Transformer\Command\Project\TransformCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.3456   15441456  11. phpDocumentor\Console\Output\Output->writeTimedLog() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Command/Project/TransformCommand.php:206
+    1.3457   15441456  12. call_user_func_array:{phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59}() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3457   15441744  13. phpDocumentor\Transformer\Transformer->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3476   15513536  14. phpDocumentor\Transformer\Transformer->transformProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:141
+    2.7832   17472920  15. phpDocumentor\Transformer\Transformer->applyTransformationToProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:275
+    2.7838   17473048  16. phpDocumentor\Plugin\Twig\Writer\Twig->transform() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:312
+    4.7720   18466896  17. Twig_Environment->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Plugin/Twig/Writer/Twig.php:116
+    4.7727   18475360  18. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Environment.php:334
+    4.7727   18491832  19. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->display() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:366
+    4.7727   18492648  20. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18492648  21. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7727   18492920  22. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->display() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:26
+    4.7727   18493416  23. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18493416  24. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7780   18542664  25. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\b\e\bedd69d6567da0a0c8c384165203d29104fc5451177b8e133bab0c78b6ce3d1b.php:312
+    4.7780   18542664  26. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->block_content() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.8900   18611392  27. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:869
+    4.8900   18611392  28. __TwigTemplate_c50c7722e144ac757ff82e03ae89707deef7e134def9af325efe05c61666a9a4->block_method() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.8905   18611888  29. twig_length_filter() C:\cygwin64\tmp\phpdoc-twig-cache\7\4\742af47af4aab3d90dd81bfad76f9b29ac552d9baaa04b3d1433d495759036fc.php:140
+
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Call Stack:
+    0.0204     383168   1. {main}() C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:0
+    0.1118    1841328   2. require('phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc') C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:10
+    0.2625    9866888   3. phpDocumentor\Application->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc:23
+    0.2651    9987872   4. Cilex\Provider\Console\ContainerAwareApplication->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Application.php:183
+    0.2652    9987872   5. Cilex\Provider\Console\ContainerAwareApplication->doRun() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:126
+    0.2653    9987872   6. Cilex\Provider\Console\ContainerAwareApplication->doRunCommand() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:195
+    0.2654    9987872   7. phpDocumentor\Command\Project\RunCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:874
+    0.2658    9989600   8. phpDocumentor\Command\Project\RunCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.2484   14546328   9. phpDocumentor\Transformer\Command\Project\TransformCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Command/Project/RunCommand.php:275
+    1.2491   14547872  10. phpDocumentor\Transformer\Command\Project\TransformCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.3456   15441456  11. phpDocumentor\Console\Output\Output->writeTimedLog() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Command/Project/TransformCommand.php:206
+    1.3457   15441456  12. call_user_func_array:{phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59}() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3457   15441744  13. phpDocumentor\Transformer\Transformer->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3476   15513536  14. phpDocumentor\Transformer\Transformer->transformProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:141
+    2.7832   17472920  15. phpDocumentor\Transformer\Transformer->applyTransformationToProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:275
+    2.7838   17473048  16. phpDocumentor\Plugin\Twig\Writer\Twig->transform() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:312
+    4.7720   18466896  17. Twig_Environment->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Plugin/Twig/Writer/Twig.php:116
+    4.7727   18475360  18. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Environment.php:334
+    4.7727   18491832  19. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->display() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:366
+    4.7727   18492648  20. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18492648  21. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7727   18492920  22. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->display() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:26
+    4.7727   18493416  23. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18493416  24. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7780   18542664  25. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\b\e\bedd69d6567da0a0c8c384165203d29104fc5451177b8e133bab0c78b6ce3d1b.php:312
+    4.7780   18542664  26. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->block_content() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.8900   18611392  27. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:869
+    4.8900   18611392  28. __TwigTemplate_c50c7722e144ac757ff82e03ae89707deef7e134def9af325efe05c61666a9a4->block_method() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.9063   18611888  29. twig_length_filter() C:\cygwin64\tmp\phpdoc-twig-cache\7\4\742af47af4aab3d90dd81bfad76f9b29ac552d9baaa04b3d1433d495759036fc.php:140
+
+
+                                    <h4>Returns</h4>
+                    integer
+                                            &mdash; <p>the value of the rolled dice.</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getLastRoll" name="method_getLastRoll" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getLastRoll()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getLastRoll() : integer</pre>
+                <p><em>Rolls the dice.</em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Call Stack:
+    0.0204     383168   1. {main}() C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:0
+    0.1118    1841328   2. require('phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc') C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:10
+    0.2625    9866888   3. phpDocumentor\Application->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc:23
+    0.2651    9987872   4. Cilex\Provider\Console\ContainerAwareApplication->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Application.php:183
+    0.2652    9987872   5. Cilex\Provider\Console\ContainerAwareApplication->doRun() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:126
+    0.2653    9987872   6. Cilex\Provider\Console\ContainerAwareApplication->doRunCommand() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:195
+    0.2654    9987872   7. phpDocumentor\Command\Project\RunCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:874
+    0.2658    9989600   8. phpDocumentor\Command\Project\RunCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.2484   14546328   9. phpDocumentor\Transformer\Command\Project\TransformCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Command/Project/RunCommand.php:275
+    1.2491   14547872  10. phpDocumentor\Transformer\Command\Project\TransformCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.3456   15441456  11. phpDocumentor\Console\Output\Output->writeTimedLog() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Command/Project/TransformCommand.php:206
+    1.3457   15441456  12. call_user_func_array:{phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59}() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3457   15441744  13. phpDocumentor\Transformer\Transformer->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3476   15513536  14. phpDocumentor\Transformer\Transformer->transformProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:141
+    2.7832   17472920  15. phpDocumentor\Transformer\Transformer->applyTransformationToProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:275
+    2.7838   17473048  16. phpDocumentor\Plugin\Twig\Writer\Twig->transform() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:312
+    4.7720   18466896  17. Twig_Environment->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Plugin/Twig/Writer/Twig.php:116
+    4.7727   18475360  18. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Environment.php:334
+    4.7727   18491832  19. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->display() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:366
+    4.7727   18492648  20. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18492648  21. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7727   18492920  22. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->display() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:26
+    4.7727   18493416  23. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18493416  24. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7780   18542664  25. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\b\e\bedd69d6567da0a0c8c384165203d29104fc5451177b8e133bab0c78b6ce3d1b.php:312
+    4.7780   18542664  26. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->block_content() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.9225   18627776  27. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:869
+    4.9225   18627776  28. __TwigTemplate_c50c7722e144ac757ff82e03ae89707deef7e134def9af325efe05c61666a9a4->block_method() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.9231   18628272  29. twig_length_filter() C:\cygwin64\tmp\phpdoc-twig-cache\7\4\742af47af4aab3d90dd81bfad76f9b29ac552d9baaa04b3d1433d495759036fc.php:140
+
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Call Stack:
+    0.0204     383168   1. {main}() C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:0
+    0.1118    1841328   2. require('phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc') C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:10
+    0.2625    9866888   3. phpDocumentor\Application->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc:23
+    0.2651    9987872   4. Cilex\Provider\Console\ContainerAwareApplication->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Application.php:183
+    0.2652    9987872   5. Cilex\Provider\Console\ContainerAwareApplication->doRun() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:126
+    0.2653    9987872   6. Cilex\Provider\Console\ContainerAwareApplication->doRunCommand() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:195
+    0.2654    9987872   7. phpDocumentor\Command\Project\RunCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:874
+    0.2658    9989600   8. phpDocumentor\Command\Project\RunCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.2484   14546328   9. phpDocumentor\Transformer\Command\Project\TransformCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Command/Project/RunCommand.php:275
+    1.2491   14547872  10. phpDocumentor\Transformer\Command\Project\TransformCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.3456   15441456  11. phpDocumentor\Console\Output\Output->writeTimedLog() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Command/Project/TransformCommand.php:206
+    1.3457   15441456  12. call_user_func_array:{phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59}() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3457   15441744  13. phpDocumentor\Transformer\Transformer->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3476   15513536  14. phpDocumentor\Transformer\Transformer->transformProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:141
+    2.7832   17472920  15. phpDocumentor\Transformer\Transformer->applyTransformationToProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:275
+    2.7838   17473048  16. phpDocumentor\Plugin\Twig\Writer\Twig->transform() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:312
+    4.7720   18466896  17. Twig_Environment->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Plugin/Twig/Writer/Twig.php:116
+    4.7727   18475360  18. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Environment.php:334
+    4.7727   18491832  19. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->display() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:366
+    4.7727   18492648  20. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18492648  21. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7727   18492920  22. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->display() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:26
+    4.7727   18493416  23. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18493416  24. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7780   18542664  25. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\b\e\bedd69d6567da0a0c8c384165203d29104fc5451177b8e133bab0c78b6ce3d1b.php:312
+    4.7780   18542664  26. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->block_content() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.9225   18627776  27. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:869
+    4.9225   18627776  28. __TwigTemplate_c50c7722e144ac757ff82e03ae89707deef7e134def9af325efe05c61666a9a4->block_method() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.9366   18628272  29. twig_length_filter() C:\cygwin64\tmp\phpdoc-twig-cache\7\4\742af47af4aab3d90dd81bfad76f9b29ac552d9baaa04b3d1433d495759036fc.php:140
+
+
+                                    <h4>Returns</h4>
+                    integer
+                                            &mdash; <p>the latest roll</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Mabn.Dice.Dice.html"><div class="path-wrapper">\Mabn\Dice\Dice</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_sides" name="method_sides" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">sides()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">sides() : integer</pre>
+                <p><em>Gets the sides</em></p>
+                
+
+                
+                
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Call Stack:
+    0.0204     383168   1. {main}() C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:0
+    0.1118    1841328   2. require('phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc') C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:10
+    0.2625    9866888   3. phpDocumentor\Application->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc:23
+    0.2651    9987872   4. Cilex\Provider\Console\ContainerAwareApplication->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Application.php:183
+    0.2652    9987872   5. Cilex\Provider\Console\ContainerAwareApplication->doRun() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:126
+    0.2653    9987872   6. Cilex\Provider\Console\ContainerAwareApplication->doRunCommand() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:195
+    0.2654    9987872   7. phpDocumentor\Command\Project\RunCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:874
+    0.2658    9989600   8. phpDocumentor\Command\Project\RunCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.2484   14546328   9. phpDocumentor\Transformer\Command\Project\TransformCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Command/Project/RunCommand.php:275
+    1.2491   14547872  10. phpDocumentor\Transformer\Command\Project\TransformCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.3456   15441456  11. phpDocumentor\Console\Output\Output->writeTimedLog() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Command/Project/TransformCommand.php:206
+    1.3457   15441456  12. call_user_func_array:{phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59}() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3457   15441744  13. phpDocumentor\Transformer\Transformer->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3476   15513536  14. phpDocumentor\Transformer\Transformer->transformProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:141
+    2.7832   17472920  15. phpDocumentor\Transformer\Transformer->applyTransformationToProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:275
+    2.7838   17473048  16. phpDocumentor\Plugin\Twig\Writer\Twig->transform() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:312
+    4.7720   18466896  17. Twig_Environment->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Plugin/Twig/Writer/Twig.php:116
+    4.7727   18475360  18. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Environment.php:334
+    4.7727   18491832  19. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->display() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:366
+    4.7727   18492648  20. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18492648  21. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7727   18492920  22. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->display() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:26
+    4.7727   18493416  23. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18493416  24. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7780   18542664  25. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\b\e\bedd69d6567da0a0c8c384165203d29104fc5451177b8e133bab0c78b6ce3d1b.php:312
+    4.7780   18542664  26. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->block_content() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.9543   18644160  27. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:869
+    4.9543   18644160  28. __TwigTemplate_c50c7722e144ac757ff82e03ae89707deef7e134def9af325efe05c61666a9a4->block_method() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.9550   18644656  29. twig_length_filter() C:\cygwin64\tmp\phpdoc-twig-cache\7\4\742af47af4aab3d90dd81bfad76f9b29ac552d9baaa04b3d1433d495759036fc.php:140
+
+
+Warning: count(): Parameter must be an array or an object that implements Countable in phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Extension/Core.php on line 1293
+
+Call Stack:
+    0.0204     383168   1. {main}() C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:0
+    0.1118    1841328   2. require('phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc') C:\cygwin64\home\marti\dbwebb-kurser\oophp\me\redovisa\.bin\phpdoc:10
+    0.2625    9866888   3. phpDocumentor\Application->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/bin/phpdoc:23
+    0.2651    9987872   4. Cilex\Provider\Console\ContainerAwareApplication->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Application.php:183
+    0.2652    9987872   5. Cilex\Provider\Console\ContainerAwareApplication->doRun() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:126
+    0.2653    9987872   6. Cilex\Provider\Console\ContainerAwareApplication->doRunCommand() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:195
+    0.2654    9987872   7. phpDocumentor\Command\Project\RunCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Application.php:874
+    0.2658    9989600   8. phpDocumentor\Command\Project\RunCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.2484   14546328   9. phpDocumentor\Transformer\Command\Project\TransformCommand->run() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Command/Project/RunCommand.php:275
+    1.2491   14547872  10. phpDocumentor\Transformer\Command\Project\TransformCommand->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/symfony/console/Symfony/Component/Console/Command/Command.php:257
+    1.3456   15441456  11. phpDocumentor\Console\Output\Output->writeTimedLog() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Command/Project/TransformCommand.php:206
+    1.3457   15441456  12. call_user_func_array:{phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59}() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3457   15441744  13. phpDocumentor\Transformer\Transformer->execute() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Console/Output/Output.php:59
+    1.3476   15513536  14. phpDocumentor\Transformer\Transformer->transformProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:141
+    2.7832   17472920  15. phpDocumentor\Transformer\Transformer->applyTransformationToProject() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:275
+    2.7838   17473048  16. phpDocumentor\Plugin\Twig\Writer\Twig->transform() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Transformer/Transformer.php:312
+    4.7720   18466896  17. Twig_Environment->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/src/phpDocumentor/Plugin/Twig/Writer/Twig.php:116
+    4.7727   18475360  18. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->render() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Environment.php:334
+    4.7727   18491832  19. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->display() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:366
+    4.7727   18492648  20. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18492648  21. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7727   18492920  22. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->display() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:26
+    4.7727   18493416  23. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayWithErrorHandling() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:355
+    4.7727   18493416  24. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->doDisplay() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:381
+    4.7780   18542664  25. __TwigTemplate_39ad8579bac9d93389668983d5def1bdf0fa6b6e976bc356c36f138a85b472ec->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\b\e\bedd69d6567da0a0c8c384165203d29104fc5451177b8e133bab0c78b6ce3d1b.php:312
+    4.7780   18542664  26. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->block_content() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.9543   18644160  27. __TwigTemplate_14395bb493b5347c53b0a62486008396dceec41e621a1a35ad0209494f5d0312->displayBlock() C:\cygwin64\tmp\phpdoc-twig-cache\0\0\00b1fcee9f851d4aed69fe8bce34616aa031c64e610a7e098a229aeeb07f9c0c.php:869
+    4.9543   18644160  28. __TwigTemplate_c50c7722e144ac757ff82e03ae89707deef7e134def9af325efe05c61666a9a4->block_method() phar://C:/cygwin64/home/marti/dbwebb-kurser/oophp/me/redovisa/.bin/phpdoc/vendor/twig/twig/lib/Twig/Template.php:167
+    4.9724   18644656  29. twig_length_filter() C:\cygwin64\tmp\phpdoc-twig-cache\7\4\742af47af4aab3d90dd81bfad76f9b29ac552d9baaa04b3d1433d495759036fc.php:140
+
+
+                                    <h4>Returns</h4>
+                    integer
+                                            &mdash; <p>the sides</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/Mabn.Dice.Dice.html"><div class="path-wrapper">\Mabn\Dice\Dice</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">DiceHistogram.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Dice\DiceHistogram.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Anax.html">\Anax</a></li>
+                                                                            <li><a href="../namespaces/Mabn.html">\Mabn</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on September 18th, 2018 at 13:38.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

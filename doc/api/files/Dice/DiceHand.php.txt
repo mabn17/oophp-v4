@@ -29,7 +29,7 @@ class DiceHand
         $this->points = 0;
 
         for ($i = 0; $i < $dices; $i++) {
-            $this->dices[]  = new Dice();
+            $this->dices[]  = new DiceHistogram();
             $this->values[] = null;
         }
     }
@@ -42,7 +42,7 @@ class DiceHand
     public function roll()
     {
         for ($j=0; $j < sizeof($this->values); $j++) {
-            $this->values[$j] = $this->dices[$j]->roll();
+            $this->values[$j] = $this->dices[0]->roll();
         }
     }
 
@@ -104,6 +104,11 @@ class DiceHand
             $this->points += array_sum($values);
         }
         return true;
+    }
+
+    public function dices()
+    {
+        return $this->dices;
     }
 }
 
