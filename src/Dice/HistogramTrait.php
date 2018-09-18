@@ -60,7 +60,7 @@ trait HistogramTrait
             $counter[$list[$t]] += 1;
         }
 
-        for ($i=1; $i <= 6; $i++) { 
+        for ($i=1; $i <= 6; $i++) {
             $nrOfRep = str_repeat("*", $counter[$i]);
             echo "$i. " . "$nrOfRep" . "\n";
         }
