@@ -58,7 +58,7 @@ if (isset($_POST["save"])) {
         <h5>Computer</h5>
         <p><?= $game->players()[1]->points() ?></p>
         <hr>
-        <h4><?= $player ?> last turn</h4>
+        <h4><?= $player ?> last roll</h4>
         <p><?= $currRoll ?></p>
         </div>
         <div class="col border border-top-0 border-bottom-0 border-right-0">
@@ -80,6 +80,7 @@ if (isset($_POST["save"])) {
                     <input class="btn btn-primary btn-sm btn-block" type="submit" name="roll" value="Roll">
                     <input class="btn btn-secondary btn-sm btn-block" type="submit" name="save" value="Save">
                 <?php } else { ?>
+                    <pre><?= $game->newStats ?></pre>
                     <input class="btn btn-primary btn-sm btn-block" type="submit" name="roll" value="Sumulate PC">                    
                 <?php } ?>
                 <input class="btn btn-success btn-sm btn-block mt-4" type="submit" name="reset" value="Reset" />

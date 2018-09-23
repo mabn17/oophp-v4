@@ -29,6 +29,7 @@ class DiceGame
     public function __construct(int $nrOfDices = 5, int $nrOfPlayers = 2)
     {
         $this->dices = $nrOfDices;
+        $this->newStats = "";
         $this->currentPlayer = 0;
         $this->names = [
             0 => "Player",
@@ -150,8 +151,13 @@ class DiceGame
      */
     public function simulateComputerTurn()
     {
-        $this->players()[1]->setPoints($this->dicePot());
-        $this->changeCurrentPlayer();
-        $this->isDone();
+        
+        if ($this->players()[0]->points() >= ($this->players()[1]->points() + array_sum($this->dicePot())) && !in_array(1, $this->dicePot())) {
+            ;
+        } else {
+            $this->players()[1]->setPoints($this->dicePot());
+            $this->isDone();
+            $this->changeCurrentPlayer();
+        }
     }
 }
