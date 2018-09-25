@@ -83,7 +83,25 @@ Lärde mig inget speciellt detta kursmoment, var ganska lungt då jag gjorde det
 Kmom04
 -------------------------
 
-Kommer senare ..
+###### Vilka är dina tankar och funderingar kring trait och interface?
+Jag har aldrig jobbat med interfaces/traits innan detta kursmoment och personligen skulle jag gärna velat ha någom extra övning i artikeln, då det inte riktigt känndes tillräkligt. Det gick ändå ganska bra att implomentera det in i hundra spelet där den visar historik på alla kast för den aktiva spelaren.
+
+Traits är något som känns ganska användningsbart för att hålla koden mer DRY så man kan slippa att ge två olika klasser samma metod. Och interfaces känns som ett bra sätt att strukturera koden. Just nu känns de dock lite onödiga när vi inte gör så stora saker.
+
+###### Hur gick det att skapa intelligensen och taktiken till tärningsspelet, hur gjorde du?
+Det gick helt okej, jag valde att inte göra något särskilt komplicerat. Datorn tar sina beslut beroende på poängställningen, det är ganska ivrig och vill helatiden vara den som leder poäng mässigt.
+Så sålänge den har minde poäng än sin motståndare så fortsätter den att kasta och så snabbt "potten" + datorns poäng är större än sin motståndare så sparar den sina poäng.
+
+###### Några reflektioner från att integrera hårdare in i ramverkets klasser och struktur?
+Inte riktigt, jag har redan försökt att gå igenom koden lite för att se hur saker fungerar, men nu efter 4 kursmoment tycker jag att, jag har någorlunda koll på hur man hanterar det.
+Och dokumentationen var bra så var inte alls svårt att ändra till Anax\Session m.m.  
+
+###### Berätta hur väl du lyckades med make test inuti ramverket och hur väl du lyckades att testa din kod med enhetstester och vilken kodtäckning du fick.
+Jag behövde inte riktigt skriva om mina tester från det föregående momentet, den enda riktiga skillnaden var att jag la in "AI:t". Så det ända som jag igentligen fick göra var att skriva en ny test klass för traitet.
+Det tog ett litet tag innan jag förstod hur "expectOutputString" fungerade men tillslut så lyckades jag få 100%.
+
+###### Vilken är din TIL för detta kmom?
+Som nämt innan blir det traits och interfaces. Båda är hely nya för mig och jag kan se vissa användningsområden när man kodar något större.
 
 
 
