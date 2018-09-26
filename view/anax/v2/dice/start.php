@@ -6,7 +6,57 @@ namespace Anax\View;
  * Template file to render a view.
  */
 
-if (isset($_POST["reset"])) {
+if ($app->request->getPost('reset')) {
+    $app->session->destroy();
+    $app->request->getPost('roll', null);
+    $app->request->getPost('save', null);
+
+    $game = new \Mabn\Dice\DiceGame();
+}
+
+if ($app->request->getPost('roll')) {
+    $game->players()[$game->currentPlayer()]->roll();
+    $game->addToPot($game->players()[$game->currentPlayer()]->values());
+    $currRoll = "Dices: " .
+        implode(", ", $game->players()[$game->currentPlayer()]->values()) .
+        "<br>" . "Total pot: " . array_sum($game->dicePot()) . "<br>";
+    if ($game->currentPlayer() == 1) {
+        $game->simulateComputerTurn();
+    } else {
+        if (!in_array(1, $game->dicePot())) {
+            ;
+        } else {
+            $game->changeCurrentPlayer();
+        }
+    }
+}
+
+/* if (isset($_POST["roll"])) {
+    $game->players()[$game->currentPlayer()]->roll();
+    $game->addToPot($game->players()[$game->currentPlayer()]->values());
+    $currRoll = "Dices: " .
+        implode(", ", $game->players()[$game->currentPlayer()]->values()) .
+        "<br>" . "Total pot: " . array_sum($game->dicePot()) . "<br>";
+    if ($game->currentPlayer() == 1) {
+        $game->simulateComputerTurn();
+    } else {
+        if (!in_array(1, $game->dicePot())) {
+            ;
+        } else {
+            $game->changeCurrentPlayer();
+        }
+    }
+} */
+
+
+// Save the points anc changes the player
+/* if (isset($_POST["save"])) {
+    $game->players()[$game->currentPlayer()]->setPoints($game->dicePot());
+    $game->changeCurrentPlayer();
+    $game->isDone();
+} */
+
+/* if (isset($_POST["reset"])) {
     $_SESSION = [];
     $_POST = [];
 
@@ -24,25 +74,9 @@ if (isset($_POST["reset"])) {
     }
     session_destroy();
     $game = new \Mabn\Dice\DiceGame();
-}
-if (isset($_POST["roll"])) {
-    $game->players()[$game->currentPlayer()]->roll();
-    $game->addToPot($game->players()[$game->currentPlayer()]->values());
-    $currRoll = "Dices: " .
-        implode(", ", $game->players()[$game->currentPlayer()]->values()) .
-        "<br>" . "Total pot: " . array_sum($game->dicePot()) . "<br>";
-    if ($game->currentPlayer() == 1) {
-        $game->simulateComputerTurn();
-    } else {
-        if (!in_array(1, $game->dicePot())) {
-            ;
-        } else {
-            $game->changeCurrentPlayer();
-        }
-    }
-}
-// Save the points anc changes the player
-if (isset($_POST["save"])) {
+} */
+
+if ($app->request->getPost('save')) {
     $game->players()[$game->currentPlayer()]->setPoints($game->dicePot());
     $game->changeCurrentPlayer();
     $game->isDone();
