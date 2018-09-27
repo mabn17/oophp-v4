@@ -4,3 +4,4 @@
 memory::
 composer.lock
 .vscode
+/config/database.php
