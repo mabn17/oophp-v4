@@ -6,7 +6,6 @@ Redovisningstexten är skriven i markdown och hittas i filen `content/redovisnin
 
 Kmom01
 -------------------------
-
 ###### Hur känns det att hoppa rakt in i objekt och klasser med PHP, gick det bra och kan du relatera till andra objektorienterade språk?
 Jag är ganska van vid objekter och klasser efter *Oo-Python* och *JavaScript* kurserna. Guiden gav en bra inblick om hur klasserna fungerar och jag ser fram emot att lära mig mer. Däremot är det riktigt ovant att använda sig av *`$klass->`* för att kalla på variablerna eller metoden istället för en enkel ..
 
@@ -31,7 +30,6 @@ Jag har kikat lite extra på hur man kan använda sig av Bootstrap vilket underl
 
 Kmom02
 -------------------------
-
 ###### Hur gick det att överföra spelet “Gissa mitt nummer” in i din me-sida?
 I sin helhet gick det bra, anax har ändrat sin struktur lite sedan **Mos** spelade in sina videor så fick man kolla igenom det lite mer. Jag valde att skapa en ny router fil `001_gissa.php` för att dela upp det lite mer, dock så ville inte `$app->router` använda sig av ->post så jag la in en any route istället. Annars var det inga konstigheter.
 
@@ -82,7 +80,6 @@ Lärde mig inget speciellt detta kursmoment, var ganska lungt då jag gjorde det
 
 Kmom04
 -------------------------
-
 ###### Vilka är dina tankar och funderingar kring trait och interface?
 Jag har aldrig jobbat med interfaces/traits innan detta kursmoment och personligen skulle jag gärna velat ha någom extra övning i artikeln, då det inte riktigt känndes tillräkligt. Det gick ändå ganska bra att implomentera det in i hundra spelet där den visar historik på alla kast för den aktiva spelaren.
 
@@ -107,8 +104,21 @@ Som nämt innan blir det traits och interfaces. Båda är hely nya för mig och 
 
 Kmom05
 -------------------------
+###### Några reflektioner kring koden i övningen för PHP PDO och MySQL?
+Jag gjorde inte övningen så kan inte säga något om man gjorde något speciellt. Däremot tyckte jag att det var en bra grund till en databas som vi fick leka med. Egentligen borde jag kanske göra Lagrade procedurer för att underlätta med struntade i det eftersom upgiften inte sa något om det.
 
-Kommer senare ..
+Eftersom de flesta collmunerna inte hade något värde på någon film så gjorde jag ingen CRUD just för dem.
+
+###### Hur gick det att överföra koden in i ramverket, stötte du på några utmaningar?
+Det gick ganska smärtfritt. Jag stötte inte på några problem utöver att har stavat fel på ett input namn, tog ett litet tag att hitta..
+
+###### Berätta om din slutprodukt för filmdatabasen, gjorde du endast basfunktionaliteten eller lade du till extra features och hur tänkte du till kring användarvänligheten och din kodstruktur?
+Kodstrukturen blev ganska bra, kunde nog göra någon liten funktion för att få det mer DRY. Och som jag skrev innan kunde man nog göra någon procedur istället för att skriva hela SQL koden. 
+
+Den enda extra funktionen jag la till för detta kursmoment var inloggningen. Även om jag gjorde det i databas kursen så Kändes att det var dags att göra den då jag tror att jag missade den i htmlphp (inte säker). Annars lekte jag mer runt med stilen och gjorde några småsaker som förbättrar för användaren t.ex inte behöva skriva img/ innan bildnamnet.
+
+###### Vilken är din TIL för detta kmom?
+Detta kursmoment känndes mest som en repetition på databas kursen, enda skillnaden var att vi använde oss av PHP ist för JS. Men måste jag säga något så får det bli att använda sig av BTH's databas istället för att bara köra på den lokala.
 
 
 

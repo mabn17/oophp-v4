@@ -8,7 +8,8 @@
         "psr-4": {
             "Anax\\": "src/",
             "Mabn\\": "src/"
-        }
+        },
+        "files": ["src/showDatabaseFunctions.php"]
     },
     "require": {
         "anax/anax-oophp-me": "^1.0.5",
