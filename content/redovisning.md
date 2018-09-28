@@ -118,7 +118,9 @@ Kodstrukturen blev ganska bra, kunde nog göra någon liten funktion för att f�
 Den enda extra funktionen jag la till för detta kursmoment var inloggningen. Även om jag gjorde det i databas kursen så Kändes att det var dags att göra den då jag tror att jag missade den i htmlphp (inte säker). Annars lekte jag mer runt med stilen och gjorde några småsaker som förbättrar för användaren t.ex inte behöva skriva img/ innan bildnamnet.
 
 ###### Vilken är din TIL för detta kmom?
-Detta kursmoment känndes mest som en repetition på databas kursen, enda skillnaden var att vi använde oss av PHP ist för JS. Men måste jag säga något så får det bli att använda sig av BTH's databas istället för att bara köra på den lokala.
+Detta kursmoment känndes mest som en repetition på databas kursen, enda skillnaden var att vi använde oss av PHP ist för JS. Men måste jag säga något så får det bli att använda sig av BTH's databas istället för att bara köra på den lokala. 
+
+Annat TIL är att man inte har så mycket disc space på studentservern. Jag fick ta bort anax-flat repot från design kursen för att kunna ladda upp redovisningssidan, det mos gjorde verkade inte hjälpa.
 
 
 
