@@ -14,10 +14,8 @@ $app->router->any(["GET", "POST"], "login", function () use ($app) {
 
 
     if ($app->request->getPost('login')) {
-        echo $password;
         $sql = "SELECT `username` FROM `login` WHERE `username` = ? AND `password` = ?";
         $res = $app->db->executeFetchAll($sql, [$username, $password]);
-        print_r($res);
     }
 
     $data["res"] = $res;
