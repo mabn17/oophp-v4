@@ -7,6 +7,7 @@
 /**
  * Prints out Hello World
  */
-function fillerFunc() {
+function fillerFunc()
+{
     echo "Hello World";
 }
