@@ -27,13 +27,7 @@ if (!$res) {
             <input class="form-control" type="text" value="<?= $row->title ?>" id="titel" readonly="readonly">
         </div>
     </div>
-    <div class="form-group row">
-        <label for="type" class="col-2 col-form-label">Type</label>
-        <div class="col-10">
-            <input class="form-control" type="text" value="<?= $row->type ?>" id="type" readonly="readonly">
-        </div>
-    </div>
-    <a href="?route=delete&id=<?= $row->id ?>&delete=yes" class="btn btn-secondary btn-md active w-50 mt-2 mb-2" role="button" aria-pressed="true">Remove</a>
+    <a href="?route=delete&id=<?= $row->id ?>&delete=yes" class="btn btn-secondary btn-md active w-50 mt-2 mb-2" role="button" aria-pressed="true">Ta bort</a>
 </form>
 <?php endforeach; ?>
 </div>

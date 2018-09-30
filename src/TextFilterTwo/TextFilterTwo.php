@@ -33,7 +33,13 @@ class TextFilterTwo
      */
     public function parse($text, $filter)
     {
-        return call_user_func_array(array($this, $this->filters[$filter]), array($text));
+        $filterArray = explode(",", $filter);
+        foreach ($filterArray as $value) {
+            if (array_key_exists($value, $this->filters)) {
+                $text = call_user_func_array(array($this, $this->filters[$value]), array($text));
+            }
+        }
+        return $text;
     }
 
 

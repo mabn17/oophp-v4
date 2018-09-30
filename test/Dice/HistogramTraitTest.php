@@ -17,11 +17,11 @@ class HistogramTraitTest extends TestCase
     public function testSeries()
     {
         $this->serie[0] = 5;
-        $expected = "1. " . "" . "\n" . 
-            "2. " . "" . "\n" . 
-            "3. " . "" . "\n" . 
-            "4. " . "" . "\n". 
-            "5. " . "*" . "\n" . 
+        $expected = "1. " . "" . "\n" .
+            "2. " . "" . "\n" .
+            "3. " . "" . "\n" .
+            "4. " . "" . "\n".
+            "5. " . "*" . "\n" .
             "6. " . "" . "\n";
 
         $this->assertEquals($this->getHistogramSerie(), [5]);
@@ -33,11 +33,11 @@ class HistogramTraitTest extends TestCase
     {
         $this->serie[0] = 5;
         $this->serie[1] = 1;
-        $expected = "1. " . "" . "\n" . 
-            "2. " . "" . "\n" . 
-            "3. " . "" . "\n" . 
-            "4. " . "" . "\n". 
-            "5. " . "*" . "\n" . 
+        $expected = "1. " . "" . "\n" .
+            "2. " . "" . "\n" .
+            "3. " . "" . "\n" .
+            "4. " . "" . "\n".
+            "5. " . "*" . "\n" .
             "6. " . "" . "\n";
         $this->expectOutputString($expected);
         $this->printHistogram(5, 5);
