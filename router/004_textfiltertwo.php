@@ -91,6 +91,12 @@ $app->router->any(["GET", "POST"], "textfiltertwo", function () use ($app) {
     
                 if (!$params["path"]) {
                     $params["path"] = null;
+                } else {
+                    foreach ($res as $row) {
+                        if ($row->path == $params['path'] && $row->id != $app->request->getGet('id')) {
+                            $params['path'] = "{$params['path']}-{$params['id']}";
+                        }
+                    }
                 }
 
                 $sql = "UPDATE content SET title=?, path=?, slug=?, data=?, type=?, filter=?, published=? WHERE id = ?;";
@@ -126,11 +132,13 @@ $app->router->any(["GET", "POST"], "textfiltertwo", function () use ($app) {
         case 'pages':
             $sql = "
                 SELECT *, 
-                    CASE WHEN (deleted <= NOW()) THEN 'isDeleted' 
+                    CASE WHEN (deleted <= NOW()) 
+                        THEN 'isDeleted' 
                     WHEN (published <= NOW()) 
-                    THEN 'isPublished' ELSE 'notPublished' END AS status 
+                        THEN 'isPublished' ELSE 'notPublished'
+                    END AS status
                 FROM content 
-                    WHERE `type` = ?";
+                    WHERE `type` = ? AND path IS NOT NULL";
             $res = $app->db->executeFetchAll($sql, ["page"]);
             $data["res"] = $res;
             $app->page->add("anax/v2/textfiltertwo/pages", $data);
@@ -188,7 +196,6 @@ $app->router->any(["GET", "POST"], "textfiltertwo", function () use ($app) {
 
                 $res = $app->db->executeFetch($sql, [$route, "page"]);
                 if (!$res) {
-                    header("HTTP/1.0 404 Not Found");
                     $data["title"] = "404";
                     $app->response->redirect('404', $data);
                     break;
