@@ -12,9 +12,10 @@ namespace Anax\View;
             <li class="nav-item"><a class="nav-link bg-dark text-light" href="?">Show all content</a></li>
             <li class="nav-item"><a class="nav-link bg-dark text-light" href="?route=admin">Admin</a></li>
             <li class="nav-item"><a class="nav-link bg-dark text-light" href="?route=add">Create</a></li>
-            <li class="nav-item"><a class="nav-link bg-dark text-light" href="?route=ree">Reset</a></li>
             <li class="nav-item"><a class="nav-link bg-dark text-light" href="?route=pages">View Pages</a></li>
             <li class="nav-item"><a class="nav-link bg-dark text-light" href="?route=blog">View Blog</a></li>
+            <li></li>
+            <li class="nav-item"><a class="nav-link bg-dark text-light" href="?route=ree">Reset</a></li>
         </ul>
     </nav>
 </div>

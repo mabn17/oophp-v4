@@ -126,9 +126,18 @@ Annat TIL är att man inte har så mycket disc space på studentservern. Jag fic
 
 Kmom06
 -------------------------
+###### Hur gick det att jobba med klassen för filtrering och formatting av texten?
+Det gick förvånadsvärt bra. Innan jag kollade igenom hur `filter` delarna var inlaggda trodde jag bara att de behövdes hantera en typ per post, vilket blev lite förvirrande när jag först fick det till att fungera, sedan såg det ut att vara trasigt. Men det gick att årtgärda ganska snabbt.
 
-Kommer senare ..
+Dock så kunde inte klassen ha samma namn som uppgiften ville ha, då det krockade med *anax's* egna **TextFilter** klass, vet inte riktigt om det är något fel i beskrivningen eller om Mos bara ville trolla, så jag gav klassen namnet TextFilterTwo istället.
 
+###### Berätta om din klasstruktur och kodstruktur för din lösning av webbsidor med innehåll i databasen.
+
+
+###### HUr känner du rent allmänt för den koden du skrivit i din me/redovisa, vad är bra och mindre bra? Ser du potential till refactoring av din kod och/eller behov av stöd från ramverket?
+
+
+###### Vilken är din TIL för detta kmom?
 
 
 Kmom07-10

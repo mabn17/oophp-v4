@@ -71,11 +71,22 @@ $app->router->any(["GET", "POST"], "textfiltertwo", function () use ($app) {
                     "type" => $app->request->getPost('type'),
                     "filter" => $app->request->getPost('filter'),
                     "published" => $app->request->getPost('published'),
-                    "id" => $app->request->getPost('id'),
+                    "id" => $app->request->getGet('id'),
                 ];
 
                 if (!$params["slug"]) {
                     $params["slug"] = slugify($params["title"]);
+                    foreach ($res as $row) {
+                        if ($row->slug == $params['slug'] && $row->id != $app->request->getGet('id')) {
+                            $params['slug'] = "{$params['slug']}-{$params['id']}";
+                        }
+                    }
+                } else {
+                    foreach ($res as $row) {
+                        if ($row->slug == $params['slug'] && $row->id != $app->request->getGet('id')) {
+                            $params['slug'] = "{$params['slug']}-{$params['id']}";
+                        }
+                    }
                 }
     
                 if (!$params["path"]) {
