@@ -26,17 +26,15 @@ $app->router->any(["GET", "POST"], "textfiltertwo", function () use ($app) {
             break;
 
         case "admin":
-            if (!$isLoggedIn) {
-                $app->page->add("anax/v2/textfiltertwo/login", $data);
-            } else {
-                $app->page->add("anax/v2/textfiltertwo/admin", $data);
-            }
+            $file = (isset($isLoggedIn)) 
+                ? "anax/v2/textfiltertwo/admin" 
+                : "anax/v2/textfiltertwo/login";
+            
+            $app->page->add($file, $data);
             break;
 
         case 'delete':
-            if (!$isLoggedIn) {
-                $app->response->redirect('login');
-            }
+            isLoggedIn($isLoggedIn, $app);
 
             if ($app->request->getGet('delete') == 'yes') {
                 $sql = "UPDATE content SET deleted=NOW() WHERE id=?;";
@@ -53,9 +51,7 @@ $app->router->any(["GET", "POST"], "textfiltertwo", function () use ($app) {
             break;
 
         case 'edit':
-            if (!$isLoggedIn) {
-                $app->response->redirect('login');
-            }
+            isLoggedIn($isLoggedIn, $app);
 
             if ($app->request->getPost('edit') == 'yes') {
                 $params = getAllParams($app);
@@ -77,6 +73,7 @@ $app->router->any(["GET", "POST"], "textfiltertwo", function () use ($app) {
             break;
 
         case 'add':
+            isLoggedIn($isLoggedIn, $app);
             if ($app->request->getGet('add') == 'yes') {
                 $sql = "INSERT INTO content (title) VALUES (?);";
                 $app->db->execute($sql, [$app->request->getGet('title')]);

@@ -9,9 +9,8 @@ $username = $app->request->getPost('user');
 $password = $app->request->getPost('password');
 if ($username && $password) {
     $sql = "SELECT `username` FROM `login` WHERE `username` = ? AND `password` = ?";
-    $login = $app->db->executeFetchAll($sql, [$username, $password]);
-
-    if ($login !== null) {
+    $login = $app->db->executeFetchAll($sql, [$username, MD5($password)]);
+    if (!empty($login)) {
         $app->session->set('username', $username);
     }
 }

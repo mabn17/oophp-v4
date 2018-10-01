@@ -48,6 +48,16 @@ function esc($value)
 }
 
 /**
+ * Checks if the user is logged in
+ */
+function isLoggedIn($isLoggedIn, $app)
+{
+    if (!$isLoggedIn) {
+        $app->response->redirect('?route=admin');
+    }
+}
+
+/**
  * Gets all values from the "edit" route
  *
  * @param class $app framework class
