@@ -46,3 +46,139 @@ function esc($value)
 {
     return htmlentities($value);
 }
+
+/**
+ * Gets all values from the "edit" route
+ *
+ * @param class $app framework class
+ *
+ * @return array all the values from the eddit form
+ */
+function getAllParams($app)
+{
+    $params = [
+        "title" => $app->request->getPost('title'),
+        "path" => $app->request->getPost('path'),
+        "slug" => $app->request->getPost('slug'),
+        "data" => $app->request->getPost('data'),
+        "type" => $app->request->getPost('type'),
+        "filter" => $app->request->getPost('filter'),
+        "published" => $app->request->getPost('published'),
+        "id" => $app->request->getGet('id'),
+    ];
+
+    return $params;
+}
+
+/**
+ * Gets all values from the "edit" route
+ *
+ * @param class $app framework class
+ *
+ * @return string new slug name
+ */
+function checkSlug($app, $res, $params)
+{
+    if (!$params["slug"]) {
+        $params["slug"] = slugify($params["title"]);
+        foreach ($res as $row) {
+            if ($row->slug == $params['slug'] && $row->id != $app->request->getGet('id')) {
+                $params['slug'] = "{$params['slug']}-{$params['id']}";
+            }
+        }
+        $params["slug"] = checkSlugIfNull($app, $res, $params);
+    } else {
+        foreach ($res as $row) {
+            if ($row->slug == $params['slug'] && $row->id != $app->request->getGet('id')) {
+                $params['slug'] = "{$params['slug']}-{$params['id']}";
+            }
+        }
+    }
+
+    return $params['slug'];
+}
+
+/**
+ * Same as checkSlug but for checkPath
+ * only difference is that path can be null
+ */
+function checkPath($app, $res, $params)
+{
+    if (!$params["path"]) {
+        $params["path"] = null;
+    } else {
+        foreach ($res as $row) {
+            if ($row->path == $params['path'] && $row->id != $app->request->getGet('id')) {
+                $params['path'] = "{$params['path']}-{$params['id']}";
+            }
+        }
+    }
+
+    return $params["path"];
+}
+
+/**
+ * SQL question for ?route=pages
+ */
+function getAllPagesSql()
+{
+    return "
+        SELECT *, 
+            CASE WHEN (deleted <= NOW()) 
+                THEN 'isDeleted' 
+            WHEN (published <= NOW()) 
+                THEN 'isPublished' ELSE 'notPublished'
+            END AS status
+        FROM content 
+            WHERE `type` = ? AND path IS NOT NULL";
+}
+
+/**
+ * SQL question for ?route=pages
+ */
+function getAllBlogPostsSql()
+{
+    return "
+        SELECT *,
+            DATE_FORMAT(COALESCE(updated, published), '%Y-%m-%dT%TZ') AS published_iso8601,
+            DATE_FORMAT(COALESCE(updated, published), '%Y-%m-%d') AS published
+        FROM content
+            WHERE type = ?
+            AND deleted IS NULL
+        ORDER BY published DESC;";
+}
+
+/**
+ * SQL question for Spesific blog post
+ */
+function getSpesificBlogPost()
+{
+    return "
+        SELECT *,
+            DATE_FORMAT(COALESCE(updated, published), '%Y-%m-%dT%TZ') AS published_iso8601,
+            DATE_FORMAT(COALESCE(updated, published), '%Y-%m-%d') AS published
+        FROM content
+        WHERE
+            slug = ?
+            AND type = ?
+            AND (deleted IS NULL OR deleted > NOW())
+            AND published <= NOW()
+        ORDER BY published DESC;";
+}
+
+/**
+ * SQL question for Spesific blog post
+ */
+function getSpesificPage()
+{
+    return "
+        SELECT *,
+            DATE_FORMAT(COALESCE(updated, published), '%Y-%m-%dT%TZ') AS modified_iso8601,
+            DATE_FORMAT(COALESCE(updated, published), '%Y-%m-%d') AS modified
+        FROM content
+        WHERE
+            path = ?
+            AND type = ?
+            AND (deleted IS NULL OR deleted > NOW())
+            AND published <= NOW();";
+}
