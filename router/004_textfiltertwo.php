@@ -26,8 +26,8 @@ $app->router->any(["GET", "POST"], "textfiltertwo", function () use ($app) {
             break;
 
         case "admin":
-            $file = (isset($isLoggedIn)) 
-                ? "anax/v2/textfiltertwo/admin" 
+            $file = (isset($isLoggedIn))
+                ? "anax/v2/textfiltertwo/admin"
                 : "anax/v2/textfiltertwo/login";
             
             $app->page->add($file, $data);
@@ -112,26 +112,29 @@ $app->router->any(["GET", "POST"], "textfiltertwo", function () use ($app) {
 
                 $slug = substr($route, 5);
                 $res = $app->db->executeFetch($sql, [$slug, "post"]);
-                if (!$res) {
-                    $data["title"] = "404";
-                    $app->response->redirect('anax/v2/textfiltertwo/404', $data);
-                    break;
+                
+                $noRoute = noRoute($res, $app, $data);
+                
+                if (!$noRoute) {
+                    $title = $res->title;
                 }
-                $title = $res->title;
                 $data["res"] = $res;
-                $app->page->add("anax/v2/textfiltertwo/blogpost", $data);
+                if (!$noRoute) {
+                    $app->page->add("anax/v2/textfiltertwo/blogpost", $data);
+                }
             } else {
                 $sql = getSpesificPage();
 
                 $res = $app->db->executeFetch($sql, [$route, "page"]);
-                if (!$res) {
-                    $data["title"] = "404";
-                    $app->response->redirect('404', $data);
-                    break;
+                $noRoute = noRoute($res, $app, $data);
+
+                if (!$noRoute) {
+                    $title = $res->title;
                 }
-                $title = $res->title;
                 $data["res"] = $res;
-                $app->page->add("anax/v2/textfiltertwo/page", $data);
+                if (!$noRoute) {
+                    $app->page->add("anax/v2/textfiltertwo/page", $data);
+                }
             }
             break;
     };

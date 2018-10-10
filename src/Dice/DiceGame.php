@@ -56,16 +56,6 @@ class DiceGame
     }
 
     /**
-     * Get the number of dices
-     *
-     * @return int the number of dices that is getting played.
-     */
-    /* public function dices()
-    {
-        return $this->dices;
-    } */
-
-    /**
      * Get the current player
      *
      * @return int The array index of the current player.

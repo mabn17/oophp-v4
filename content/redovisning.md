@@ -129,16 +129,21 @@ Kmom06
 ###### Hur gick det att jobba med klassen för filtrering och formatting av texten?
 Det gick förvånadsvärt bra. Innan jag kollade igenom hur `filter` delarna var inlaggda trodde jag bara att de behövdes hantera en typ per post, vilket blev lite förvirrande när jag först fick det till att fungera, sedan såg det ut att vara trasigt. Men det gick att årtgärda ganska snabbt.
 
-Dock så kunde inte klassen ha samma namn som uppgiften ville ha, då det krockade med *anax's* egna **TextFilter** klass, vet inte riktigt om det är något fel i beskrivningen eller om Mos bara ville trolla, så jag gav klassen namnet TextFilterTwo istället.
+Dock så kunde inte klassen ha samma namn som på uppgiften, då det krockade med *anax's* egna **TextFilter** klass, så jag gav, klassen namnet TextFilterTwo istället.
 
 ###### Berätta om din klasstruktur och kodstruktur för din lösning av webbsidor med innehåll i databasen.
+Jag valde att hantera veckans uppgifter med funktioner istället för en router klass. Visst finns det fortvarande kod i routern och jag hade nog kunnat minska det änumer, men jag kommer till att lägga mer fokus på det under projektet.
 
+När det kommer till felhanteringen för `slug` så löste jag det genom att, lägga på inläggets id som extention ifall om den redan existerar, medans path delen, löste jag genom att inte visa page inläggen i "View Pages" om den har värdet null.
 
-###### HUr känner du rent allmänt för den koden du skrivit i din me/redovisa, vad är bra och mindre bra? Ser du potential till refactoring av din kod och/eller behov av stöd från ramverket?
+###### Hur känner du rent allmänt för den koden du skrivit i din me/redovisa, vad är bra och mindre bra? Ser du potential till refactoring av din kod och/eller behov av stöd från ramverket?
+Det finns mycket förbättrings potential till det mesta, men speciellt i Dice - spelet. Dice spelet jobbade vi med i flera kursmoment och då blev det mycket att man fick ändra på den ett par gånger, både för traits, tester m.m. Vilket gjorde att det blev lite väl rörigt på slutet.
 
+Jag blir sällan nöjd med koden under kursmomenter överlag. Mycket av det kanske beror på att man inte riktigt har full koll på om det man gör kommer att behöva ändras eller återanvändas i kommande moment. Detta gör att jag inte vill lägga mer extra tid på att få det *snyggare* och istället, skriva om det lite under projektet om det kommer till att användas.
+Men jag blev ganska nöjd över att kunna göra tester för alla metoder i dice oavsätt vad jag skrev tidigare.
 
 ###### Vilken är din TIL för detta kmom?
-
+Mitt TIL är textformateringen, jag har aldrig tänkt på hur det kan fungera när man hämtar inehåll som kommentarer från en databas, som sedan formateras om till html.
 
 Kmom07-10
 -------------------------

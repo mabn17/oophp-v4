@@ -30,7 +30,6 @@ class DiceGameTest extends TestCase
 
         $this->assertEquals(2, sizeof($game->players()));
         $this->assertEquals(2, sizeof($game->players()[0]->dices()));
-
         $this->assertEquals(sizeof($game->players()[1]->dices()), sizeof($game->players()[0]->dices()));
     }
 

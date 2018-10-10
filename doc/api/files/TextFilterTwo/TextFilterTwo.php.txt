@@ -132,3 +132,4 @@ class TextFilterTwo
         return nl2br($text, false);
     }
 }
+
